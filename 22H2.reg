@@ -1,0 +1,280 @@
+Windows Registry Editor Version 5.00
+
+; Переключение между активными программами на панели задач
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"LastActiveClick"=dword:00000001
+
+; Отключить предупреждения при запуске любых exe
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Security]
+"DisableSecuritySettingsCheck"=dword:00000001
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3]
+"1806"=dword:00000000
+
+; Отключить UAC
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"ConsentPromptBehaviorAdmin"=dword:00000000
+"EnableInstallerDetection"=dword:00000000
+"EnableLUA"=dword:00000000
+"EnableSecureUIAPaths"=dword:00000000
+"EnableVirtualization"=dword:00000000
+"FilterAdministratorToken"=dword:00000000
+"PromptOnSecureDesktop"=dword:00000000
+
+; Увеличение кэша ФС
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management]
+"LargeSystemCache"=dword:00000001
+
+; Ускорить запуск Windows и запуск программ из автозагрузки
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Serialize]
+"Startupdelayinmsec"=dword:00000000
+
+; Отключить автозапуск съёмных носителей
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers]
+"DisableAutoplay"=dword:00000001
+
+; Нормальный просмоторщик фото
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Applications\photoviewer.dll\shell\open]
+"MuiVerb"="@photoviewer.dll,-3043"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Applications\photoviewer.dll\shell\open\command]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6D,00,52,00,6F,00,6F,00,74,00,25,\
+00,5C,00,53,00,79,00,73,00,74,00,65,00,6D,00,33,00,32,00,5C,00,72,00,75,00,\
+6E,00,64,00,6C,00,6C,00,33,00,32,00,2E,00,65,00,78,00,65,00,20,00,22,00,25,\
+00,50,00,72,00,6F,00,67,00,72,00,61,00,6D,00,46,00,69,00,6C,00,65,00,73,00,\
+25,00,5C,00,57,00,69,00,6E,00,64,00,6F,00,77,00,73,00,20,00,50,00,68,00,6F,\
+00,74,00,6F,00,20,00,56,00,69,00,65,00,77,00,65,00,72,00,5C,00,50,00,68,00,\
+6F,00,74,00,6F,00,56,00,69,00,65,00,77,00,65,00,72,00,2E,00,64,00,6C,00,6C,\
+00,22,00,2C,00,20,00,49,00,6D,00,61,00,67,00,65,00,56,00,69,00,65,00,77,00,\
+5F,00,46,00,75,00,6C,00,6C,00,73,00,63,00,72,00,65,00,65,00,6E,00,20,00,25,\
+00,31,00,00,00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations]
+".tif"="PhotoViewer.FileAssoc.Tiff"
+".tiff"="PhotoViewer.FileAssoc.Tiff"
+".jpg"="PhotoViewer.FileAssoc.Tiff"
+".png"="PhotoViewer.FileAssoc.Tiff"
+".jpeg"="PhotoViewer.FileAssoc.Tiff"
+".bmp"="PhotoViewer.FileAssoc.Tiff"
+".jpe"="PhotoViewer.FileAssoc.Tiff"
+".jfif"="PhotoViewer.FileAssoc.Tiff"
+".dib"="PhotoViewer.FileAssoc.Tiff"
+".ico"="PhotoViewer.FileAssoc.Tiff"
+".gif"="PhotoViewer.FileAssoc.Tiff"
+".tga"="PhotoViewer.FileAssoc.Tiff"
+
+; Take Ownership
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\runas]
+@="Take ownership"
+"Icon"="imageres.dll,101"
+"NoWorkingDirectory"=""
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\runas\command]
+@="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\runas]
+@="Take ownership"
+"Icon"="imageres.dll,101"
+"NoWorkingDirectory"=""
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\runas\command]
+@="cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant administrators:F /t"
+"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant administrators:F /t"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\dllfile\shell\runas]
+@="Take ownership"
+"HasLUAShield"=""
+"Icon"="imageres.dll,101"
+"NoWorkingDirectory"=""
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\dllfile\shell\runas\command]
+@="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\exefile\shell\runas2]
+@="Take ownership"
+"HasLUAShield"=""
+"Icon"="imageres.dll,101"
+"NoWorkingDirectory"=""
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\exefile\shell\runas2\command]
+@="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+
+; Убрать задержку появления контекстного меню
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"MenuShowDelay"="20"
+
+; УДАЛИТЬ: Восстановить прежнюю версию Изменить в Paint 3D / Print 3D Закрепить на начальном экране Закрепить на панели быстрого доступа Поиск музыки в Интернете Отправить (поделиться) Передать на устройство Добавить в библиотеку 
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shellex\ContextMenuHandlers\ModernSharing]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{470C0EBD-5D73-4d58-9CED-E91E22E23282}]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{596AB062-B4D2-4215-9F74-E9109B0A8153}]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{7AD84985-87B4-4a16-BE58-8B72A5B390F7}]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\pintohome]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shellex\ContextMenuHandlers\Library Location]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\SystemFileAssociations\.bmp\Shell\3D Edit]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\SystemFileAssociations\.gif\Shell\3D Edit]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\SystemFileAssociations\.jpeg\Shell\3D Edit]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\SystemFileAssociations\.jpg\Shell\3D Edit]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\SystemFileAssociations\.png\Shell\3D Edit]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\SystemFileAssociations\.stl\Shell\3D Edit]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\SystemFileAssociations\.stl\Shell\3D Print]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\SystemFileAssociations\Directory.Audio\shellex\ContextMenuHandlers\WMPShopMusic]
+
+; Удалить из меню Создать: Точечный рисунок Контакт Документ в формате RTF Сжатая ZIP-папка
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.bmp\ShellNew]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.contact\ShellNew]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.rtf\ShellNew]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.zip\CompressedFolder\ShellNew]
+
+; Удалить Объемные объекты
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}]
+
+; Удалить папки из проводника
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{088e3905-0323-4b02-9826-5d99428e115f}]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{24ad3ad4-a569-4530-98e1-ab02f9417aa8}]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{d3162b92-9365-467a-956b-92703aca08af}]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}]
+
+; Заменяет цвет всплывающей подсказки
+[HKEY_USERS\.DEFAULT\Control Panel\Colors]
+"InfoWindow"="246 253 255"
+[HKEY_USERS\S-1-5-19\Control Panel\Colors]
+"InfoWindow"="246 253 255"
+[HKEY_USERS\S-1-5-20\Control Panel\Colors]
+"InfoWindow"="246 253 255"
+
+; Уменьшает кнопки Закрыть, свернуть, развернуть
+[HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics]
+"CaptionHeight"="-270"
+"CaptionWidth"="-270"
+
+; Удалить Ярлык...
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer]
+"link"=hex:00,00,00,00
+
+; Прозрачность панели задач
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"UseOLEDTaskbarTransparency"=dword:00000001
+
+; Все значки в трее
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer]
+"EnableAutoTray"=dword:00000000
+
+; ========== ПРОВОДНИК ==========
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem]
+"LongPathsEnabled"=dword:00000001
+
+; Настройки проводника
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"HideDrivesWithNoMedia"=dword:00000000
+"HideFileExt"=dword:00000000
+"LaunchTo"=dword:00000001
+
+; Отключить показ часто используемых папок
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer]
+"ShowRecent"=dword:00000000
+"ShowFrequent"=dword:00000000
+
+; Отображать полный путь в заголовке проводника
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\CabinetState]
+"FullPath"=dword:00000001
+
+; Добавить Мой компьютер
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel]
+"{20D04FE0-3AEA-1069-A2D8-08002B30309D}"=dword:00000000
+
+; Отключить центр уведомлений
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer]
+"DisableNotificationCenter"=dword:00000001
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance]
+"Enabled"=dword:00000000
+
+;Добавление перезагрузить Explorer
+[HKEY_CLASSES_ROOT\DesktopBackground\Shell\Item1]
+"MUIVerb"="Restart Explorer"
+"Icon"="shell32.dll,94"
+"Position"="Top"
+[HKEY_CLASSES_ROOT\DesktopBackground\Shell\Item1\command]
+@="cmd.exe /c taskkill /f /im explorer.exe && start explorer.exe"
+
+;Добавить Консоль в контекстное меню
+[HKEY_CLASSES_ROOT\Directory\background\shell\consolka]
+@="CMD"
+"Icon"="imageres.dll,311"
+[HKEY_CLASSES_ROOT\Directory\background\shell\consolka\command]
+@="cmd.exe /s /k pushd \"%V\""
+
+; Классический вид панели управления
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"ForceClassicControlPanel"=dword:00000001
+
+;Отключить залипание клавиш
+[HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
+"Flags"="506"
+
+; Удалить Проверить с помощью Defender
+[-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\EPP]
+[-HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers\EPP]
+
+; Скрыть элементы из панели управления
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"DisallowCpl"=dword:00000001
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowCpl]
+"1"="История файлов"
+"2"="Параметры индексирования"
+"3"="Подключения к удаленным рабочим столам и приложениям RemoteApp"
+"4"="Рабочие папки"
+"5"="Распознавание речи"
+"6"="Региональные стандарты"
+"7"="Резервное копирование и восстановление (Windows 7)"
+"8"="Телефон и модем"
+"9"="Управление цветом"
+"10"="Устранение неполадок"
+"11"="Центр безопасности и обслуживания"
+"12"="Центр мобильности Windows"
+"13"="Центр синхронизации"
+"14"="Шифрование диска BitLocker"
+
+; Небольшое ускорение работы
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"LinkResolveIgnoreLinkInfo"=dword:00000001 ; Отключение проверки сопоставления ярлыков программам
+"NoResolveSearch"=dword:00000001 ; Запрещает системе осуществлять поиск целевого устройства по его ярлыку.
+"NoResolveTrack"=dword:00000001 ; Блокирует функциональные возможности системы по отслеживанию NTFS, при поиске целевых файлов ярлыков оболочки;
+"NoInternetOpenWith"=dword:00000001 ; Cледует ли использовать веб-службы Microsoft
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"AutoEndTasks"="1" ; Автоматическое завершение зависших приложений.
+"HungAppTimeout"="1000" ; Если в течение этого времени программа не ответила на запрос, то она считается зависшей.
+"MenuShowDelay"="200" ; Скорость открытия подменю в контекстном меню
+"WaitToKillAppTimeout"="2000" ; Указывает интервал времени, в течение которого программа должна закончить свою работу при завершении работы
+"LowLevelHooksTimeout"="1000"
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002\Control]
+"WaitToKillServiceTimeout"="1000"
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control]
+"WaitToKillServiceTimeout"="1000"
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control]
+"WaitToKillServiceTimeout"="1000"
+[HKEY_USERS\S-1-5-19\Control Panel\Desktop]
+"AutoEndTasks"="1"
+"HungAppTimeout"="1000"
+"MenuShowDelay"="200"
+"WaitToKillAppTimeout"="2000"
+[HKEY_USERS\S-1-5-20\Control Panel\Desktop]
+"AutoEndTasks"="1"
+"HungAppTimeout"="1000"
+"MenuShowDelay"="200"
+"WaitToKillAppTimeout"="2000"
+
+; Менять обои раз в 5 минут
+[HKEY_CURRENT_USER\Control Panel\Personalization\Desktop Slideshow]
+"Interval"=dword:000493e0
+
+;========== Визуальный эффекты ==========
+; Анимация на панели задач
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"TaskbarAnimations"=dword:00000000
+; Анимация окон при свертывании и развертывании
+[HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics]
+"MinAnimate"="0"
+; Анимированные элементы управления и элементы внутри окна
+; Гладкое прокручивание списков
+; Эффекты затухания
+; Затухание меню после вызова команды
+; Скольжение при раскрытии списков
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"UserPreferencesMask"=hex:90,32,07,80,10,00,00,00
