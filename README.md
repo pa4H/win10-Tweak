@@ -1,4 +1,4 @@
-# The Coolest Registry Tweak for Windows 10 22H2. ver: 09.25
+# The Coolest Registry Tweak for Windows 10 22H2. ver: 12.25
 
 ### Контекстное меню
 ✅ Добавлена кнопка "Take ownership", которая позволяет стать владельцем файла\папки  
