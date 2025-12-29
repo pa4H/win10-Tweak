@@ -325,3 +325,12 @@ Windows Registry Editor Version 5.00
 ; Скольжение при раскрытии списков
 [HKEY_CURRENT_USER\Control Panel\Desktop]
 "UserPreferencesMask"=hex:90,32,07,80,10,00,00,00
+
+;=== Отключение появления экрана, предлагающего завершить настройку компьютера ===
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement]
+"ScoobeSystemSettingEnabled"=dword:00000000
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+"SubscribedContent-338388Enabled"=dword:00000000
+"SubscribedContent-338389Enabled"=dword:00000000
+"SubscribedContent-310093Enabled"=dword:00000000
