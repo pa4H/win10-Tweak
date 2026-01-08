@@ -334,3 +334,11 @@ Windows Registry Editor Version 5.00
 "SubscribedContent-338388Enabled"=dword:00000000
 "SubscribedContent-338389Enabled"=dword:00000000
 "SubscribedContent-310093Enabled"=dword:00000000
+
+; Удалить "Изменить с помощью Фотографии" из контекстного меню
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked]
+"{BFE0E2A4-C70C-4AD7-AC3D-10D1ECEBB5B4}"=""
+
+; Удалить "Передать на устройство" из контекстного меню
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked]
+"{7AD84985-87B4-4A16-BE58-8B72A5B390F7}"="Play to Menu"
